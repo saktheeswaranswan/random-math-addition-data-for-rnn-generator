@@ -18,13 +18,13 @@ class_names = open("labels.txt", "r").readlines()
 # Initialize pygame mixer
 pygame.mixer.init()
 
-# Load mp3 files
+# Load mp3 files for 10 classes
 mp3_files = []
-for i in range(len(class_names)):
+for i in range(10):
     mp3_files.append(pygame.mixer.Sound("audio_file_" + str(i) + ".mp3"))
 
 # Specify folder path for input images
-folder_path = "/home/josva/Music/yolo-face/cropped_images/"
+folder_path = "/home/josva/Pictures/pranav/workstaff/"
 
 while True:
     # Get the last updated image in the folder
@@ -59,13 +59,10 @@ while True:
     cv2.imshow("Detected Image", image_copy)
 
     # Play mp3 file for 5 seconds if specific class name is detected
-    if "saktheeswaran" in class_name:
-        mp3_files[0].play()
+    if class_name[2:].lower() in [" saktheeswaran", "shamini"]:
+        class_index = int(class_name[2:]) - 1
+        mp3_files[class_index].play()
         pygame.time.wait(5000)
-    elif "shamini" in class_name:
-        mp3_files[1].play()
-        pygame.time.wait(5000)
-    # Add more elif statements for other class names and corresponding audio files
 
     # Listen to the keyboard for presses.
     keyboard_input = cv2.waitKey(1)

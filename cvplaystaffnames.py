@@ -24,7 +24,7 @@ for i in range(len(class_names)):
     mp3_files.append(pygame.mixer.Sound("audio_file_" + str(i) + ".mp3"))
 
 # Specify folder path for input images
-folder_path = "/home/josva/Pictures/pranav/yolov5-master/yolov5-master/runs/detect/exp46/crops/Face/"
+folder_path = "/home/josva/Music/yolo-face/cropped_images/"
 
 while True:
     # Get the last updated image in the folder
